@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Quad Sets"
+        android:text="Adduction"
         android:id="@+id/textView4"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Start by placing a towel roll directly underneath the knee want you to push down into the tower or tightening up your thigh muscle hold for five seconds and after the five seconds then relax and then repeat up"
+        android:text="For this one here what we want to do is start off by first sliding over a little bit to give yourself adequate room on the bed. We&apos;re going to slide the leg out just as far as you&apos;re comfortable and then slide the leg back in again making sure that you keep both your knee and your foot pointing up towards the ceiling not rotating out to the side at a nice steady pace you do not need to hold just back and forth. "
         android:id="@+id/textView9"
         android:layout_marginTop="61dp"
         android:layout_below="@+id/textView4"

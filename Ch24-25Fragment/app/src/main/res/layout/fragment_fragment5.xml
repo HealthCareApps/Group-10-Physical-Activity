@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Quad Sets"
+        android:text="Heel Slides"
         android:id="@+id/textView4"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Start by placing a towel roll directly underneath the knee want you to push down into the tower or tightening up your thigh muscle hold for five seconds and after the five seconds then relax and then repeat up"
+        android:text="We&apos;re going to slide the heels up towards the buttocks as far as what you&apos;re comfortable and then slide back down holding for five seconds when you get towards the top. If you&apos;re having difficulty here there&apos;s too much friction on the bed sheet underneath the heel feel free to put down a sheet of plastic, sheet of cardboard, or cookie sheet."
         android:id="@+id/textView9"
         android:layout_marginTop="61dp"
         android:layout_below="@+id/textView4"

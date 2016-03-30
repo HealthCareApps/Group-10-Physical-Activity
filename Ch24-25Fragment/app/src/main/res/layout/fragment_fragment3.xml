@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Quad Sets"
+        android:text="Gluteal Sets"
         android:id="@+id/textView4"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Start by placing a towel roll directly underneath the knee want you to push down into the tower or tightening up your thigh muscle hold for five seconds and after the five seconds then relax and then repeat up"
+        android:text="Here we&apos;re going to start by squeezing your buttocks together squeeze nice and tight hold for five seconds after the five seconds then relax when you&apos;re doing this on a firm surface you should see the hips coming up slightly of all the table. "
         android:id="@+id/textView9"
         android:layout_marginTop="61dp"
         android:layout_below="@+id/textView4"

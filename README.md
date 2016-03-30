@@ -11,3 +11,12 @@ The health worker can follow up when the patient comes for an office visit if th
 So our only sensor would be a time record of performed exercise.
 
 The story board will be updated changing the term doctor to health professional.
+
+
+To be added in the app:
+- Upload some preset exercise sets to be selected by provider
+- Include "Physical" in the name
+- Create animations or record videos
+- Include provider name and contact info
+- Add submit activity done button for each activity
+- Track missed exercise "appointments" 

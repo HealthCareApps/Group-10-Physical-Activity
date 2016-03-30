@@ -26,16 +26,12 @@ public class MainActivity extends AppCompatActivity {
 
         final TextView t1 = (TextView) findViewById(R.id.textView);
         final TextView t2 = (TextView) findViewById(R.id.textView2);
-        final TextView t3 = (TextView) findViewById(R.id.textView5);
-        final TextView t4 = (TextView) findViewById(R.id.textView6);
-        final TextView t5 = (TextView) findViewById(R.id.textView7);
 
         t1.setBackgroundColor(Color.LTGRAY);
 
 
-        t1.setOnClickListener(new View.OnClickListener() {
+        t1.setOnClickListener(new View.OnClickListener(){
             FragmentActivityFragment frag = new FragmentActivityFragment();
-
             @Override
             public void onClick(View v) {
                 android.support.v4.app.FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -43,9 +39,6 @@ public class MainActivity extends AppCompatActivity {
                 transaction.commitAllowingStateLoss();
                 t1.setBackgroundColor(Color.LTGRAY);
                 t2.setBackgroundColor(Color.WHITE);
-                t3.setBackgroundColor(Color.WHITE);
-                t4.setBackgroundColor(Color.WHITE);
-                t5.setBackgroundColor(Color.WHITE);
             }
         });
 
@@ -59,57 +52,6 @@ public class MainActivity extends AppCompatActivity {
                 transaction.commitAllowingStateLoss();
                 t2.setBackgroundColor(Color.LTGRAY);
                 t1.setBackgroundColor(Color.WHITE);
-                t3.setBackgroundColor(Color.WHITE);
-                t4.setBackgroundColor(Color.WHITE);
-                t5.setBackgroundColor(Color.WHITE);
-            }
-        });
-
-        t3.setOnClickListener(new View.OnClickListener(){
-            FragmentActivityFragment3 frag3 = new FragmentActivityFragment3();
-
-            @Override
-            public void onClick(View v) {
-                android.support.v4.app.FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragment_container, frag3);
-                transaction.commitAllowingStateLoss();
-                t3.setBackgroundColor(Color.LTGRAY);
-                t1.setBackgroundColor(Color.WHITE);
-                t2.setBackgroundColor(Color.WHITE);
-                t4.setBackgroundColor(Color.WHITE);
-                t5.setBackgroundColor(Color.WHITE);
-            }
-        });
-
-        t4.setOnClickListener(new View.OnClickListener(){
-            FragmentActivityFragment4 frag4 = new FragmentActivityFragment4();
-
-            @Override
-            public void onClick(View v) {
-                android.support.v4.app.FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragment_container, frag4);
-                transaction.commitAllowingStateLoss();
-                t4.setBackgroundColor(Color.LTGRAY);
-                t1.setBackgroundColor(Color.WHITE);
-                t2.setBackgroundColor(Color.WHITE);
-                t3.setBackgroundColor(Color.WHITE);
-                t5.setBackgroundColor(Color.WHITE);
-            }
-        });
-
-        t5.setOnClickListener(new View.OnClickListener(){
-            FragmentActivityFragment5 frag5 = new FragmentActivityFragment5();
-
-            @Override
-            public void onClick(View v) {
-                android.support.v4.app.FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragment_container, frag5);
-                transaction.commitAllowingStateLoss();
-                t5.setBackgroundColor(Color.LTGRAY);
-                t1.setBackgroundColor(Color.WHITE);
-                t2.setBackgroundColor(Color.WHITE);
-                t3.setBackgroundColor(Color.WHITE);
-                t4.setBackgroundColor(Color.WHITE);
             }
         });
     }
