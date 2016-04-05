@@ -20,3 +20,13 @@ To be added in the app:
 - Include provider name and contact info
 - Add submit activity done button for each activity
 - Track missed exercise "appointments" 
+
+Added 04/04/16	
+
+We aer moving away from storing the information on the VistA database, it apparently is not easily extensible, and although it probably has useable tables, documentation on it is sparse, and we need to speed up development.
+We will be using MongoDB on the same server as the VistA install, allowing us to use the new database, but with the possibility of using web services to exchage relevant data with the VistA platform. 
+
+Plans are to also have a simple web interface to allow health care providers to manage the data available to the user.
+This approach, also allows for stand alone operation, while allowing for future integration with VistA.
+
+
