@@ -1,0 +1,33 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="edu.fau.group10.AndroidPhysicalTherapy.FragmentActivityFragment2"
+    >
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Patellar Mobilization"
+        android:id="@+id/textView4"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="We first want you to make sure that you&apos;re able to locate your kneecap. Locate the top border and then also the bottom border and we&apos;re going to glide up and down in a gentle manner, not expecting a great deal of movement but you should feel a little bit in the kneecap. the next glide is going to be a medial and lateral glide in here we&apos;re going to locate the inside border and then the outside border of the kneecap and then doing the same thing with a gentle glide in each direction and repeating this 20 times. "
+        android:id="@+id/textView9"
+        android:layout_marginTop="61dp"
+        android:layout_below="@+id/textView4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="16dp" />
+</RelativeLayout>

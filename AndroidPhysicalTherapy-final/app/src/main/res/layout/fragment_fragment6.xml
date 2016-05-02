@@ -1,0 +1,33 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="edu.fau.group10.AndroidPhysicalTherapy.FragmentActivityFragment2"
+    >
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Short Arc Quads"
+        android:id="@+id/textView4"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Here we are going to place a bolster underneath the knee this is something that we&apos;re looking for about six to eight inches in diameter. Things that you can use for this at home would include rolled up blankets, rolled up pillows, coffee cans. We are going to keep the back of the knee on the bolster throughout the exercise. We will extend the knee kicking your foot up towards the ceiling and then tightening your thigh muscle and holding for five seconds."
+        android:id="@+id/textView9"
+        android:layout_marginTop="61dp"
+        android:layout_below="@+id/textView4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="16dp" />
+</RelativeLayout>
