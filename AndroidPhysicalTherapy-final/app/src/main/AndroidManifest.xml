@@ -9,7 +9,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <uses-permission android:name="android.permission.INTERNET" />
+
         <activity
             android:name="edu.fau.group10.AndroidPhysicalTherapy.MainActivity"
             android:label="@string/app_name"
