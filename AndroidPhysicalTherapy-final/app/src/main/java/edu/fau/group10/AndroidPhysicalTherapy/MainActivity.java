@@ -1,6 +1,7 @@
 package edu.fau.group10.AndroidPhysicalTherapy;
 
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -15,8 +16,16 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.util.List;
 import java.util.Objects;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     TextView notificationText;
     MyDBHandler dbHandler;
 
+    public static final String BASE_URL = "http://162.252.122.230:3010/api/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +61,8 @@ public class MainActivity extends AppCompatActivity {
         button1.setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v) {
-                        Login();
+                        //Login(); // Login method for data in SQLite
+                        loginProcessWithRetrofit();
                     }
                 }
         );
@@ -77,10 +88,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @TargetApi(Build.VERSION_CODES.KITKAT)
-    public void Login(){
-        String storedPassword = dbHandler.getSingleEntry(usernameInput.getText().toString());
+    public void Login(user_model user){
+
+        //String storedPassword = dbHandler.getSingleEntry(usernameInput.getText().toString());
         String enteredPassword = passwordInput.getText().toString();
-        String user = usernameInput.getText().toString();
+
+        String storedPassword = user.password;
+        String email = user.email;
 
         if(Objects.equals(enteredPassword, storedPassword)){
             notificationText.setText("Login Successful!");
@@ -98,13 +112,15 @@ public class MainActivity extends AppCompatActivity {
             RelativeLayout myLayout = (RelativeLayout) findViewById(edu.fau.group10.AndroidPhysicalTherapy.R.id.myrel);
             TextView name = (TextView) findViewById(edu.fau.group10.AndroidPhysicalTherapy.R.id.textView10);
             //Dynamic loading points, Insert Name would be replaced to a call to the database to get the users name
-            name.setText(user);
+            name.setText(email);
             //Load array determines what excercises are loaded.  First number is how many excercises, the rest are ids
             //These numbers would also be replaced by calls to the database.
-            int [] Load = {11, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+            //int [] Load = {11, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+            List Load = user.exercises;
+
             final TextView countdownsec = (TextView) findViewById(edu.fau.group10.AndroidPhysicalTherapy.R.id.textView11);
             final TextView countdownmin = (TextView) findViewById(edu.fau.group10.AndroidPhysicalTherapy.R.id.textView16);
-            int TextCount = Load[0];
+            int TextCount = Load.size();
             final TextView [] exercises = new TextView[TextCount];
 
             //Load the different textviews' int ids.
@@ -126,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
             for (int z = 0; z < TextCount; ++z)
             {
                 exercises[z] = (TextView) findViewById(getviews[z]);
-                exercises[z].setText(getexer(Load[z+1]));
+                exercises[z].setText(getexer((Integer) Load.get(z+1)));
             }
 
             //Remove any unused textviews
@@ -136,8 +152,6 @@ public class MainActivity extends AppCompatActivity {
                 temp = (TextView) findViewById(getviews[a]);
                 myLayout.removeView(temp);
             }
-
-
 
             //Stopwatch implementation
             final ImageView start = (ImageView) findViewById(edu.fau.group10.AndroidPhysicalTherapy.R.id.imageView2);
@@ -174,7 +188,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             };
 
-
             start.setOnClickListener(new View.OnClickListener(){
 
 
@@ -201,7 +214,6 @@ public class MainActivity extends AppCompatActivity {
                     count.onFinish();
                 }
             });
-
 
             //Sets the onclick listener for all loaded exercises
             for(int f = 0; f < TextCount; ++f) {
@@ -306,6 +318,8 @@ public class MainActivity extends AppCompatActivity {
         passwordInput.setText("");
     }
 
+
+
     String getexer(int i)
     {
         if (i == 1)
@@ -354,7 +368,52 @@ public class MainActivity extends AppCompatActivity {
         }
         return "";
     }
+
+    private rest_api getInterfaceService() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        final rest_api mInterfaceService = retrofit.create(rest_api.class);
+        return mInterfaceService;
+    }
+    private void loginProcessWithRetrofit(){
+        String email = usernameInput.getText().toString();
+        rest_api mApiService = this.getInterfaceService();
+        Call<user_model> mService = mApiService.getUser(email);
+        mService.enqueue(new Callback<user_model>() {
+            @Override
+            public void onResponse(Call<user_model> call, Response<user_model> response) {
+                user_model userObject = response.body();
+                Login(userObject);
+            }
+
+/*
+                //String returnedResponse = mLoginObject.isLogin;
+                Toast.makeText(MainActivity.this, "Returned " + returnedResponse, Toast.LENGTH_LONG).show();
+                //showProgress(false);
+                if(returnedResponse.trim().equals("1")){
+                    // redirect to Main Activity page
+                    Intent loginIntent = new Intent(MainActivity.this, MainActivity.class);
+                    loginIntent.putExtra("EMAIL", email);
+                    startActivity(loginIntent);
+                }
+                if(returnedResponse.trim().equals("0")){
+                    // use the registration button to register
+                    failedLoginMessage.setText(getResources().getString(R.string.registration_message));
+                    mPasswordView.requestFocus();
+                }*/
+            @Override
+            public void onFailure(Call<user_model> call, Throwable t) {
+                call.cancel();
+                Toast.makeText(MainActivity.this, "Please check your network connection and internet permission", Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
 }
+
+
 
     /*@Override
     protected void onCreate(Bundle savedInstanceState) {
